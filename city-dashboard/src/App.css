@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.map-section {
+  width: 50%; /* Adjust this to change the size of the map section */
+  height: 100vh;
+}
+
+/* Add your new code here */
