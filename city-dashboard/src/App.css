@@ -46,4 +46,19 @@
   height: 100vh;
 }
 
+.map-container {
+  position: absolute;
+  left: 0;
+  width: 50%; /* Adjust this to change the width of the map */
+  height: 50vh; /* Adjust this to change the height of the map */
+}
+
+.dashboard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
 /* Add your new code here */
