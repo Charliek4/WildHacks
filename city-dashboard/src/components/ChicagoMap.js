@@ -451,7 +451,7 @@ function ChicagoMap() {
 
   const [selectedColor, setSelectedColor] = React.useState('all');
 
-  const colors = ['red', 'blue', 'green', 'pink', 'purple', 'brown', 'orange', 'yellow', 'all'];
+  const colors = ['all','red', 'blue', 'green', 'pink', 'purple', 'brown', 'orange', 'yellow'];
 
   const dropdown = (
     <select className = "my-dropdown" onChange={(e) => setSelectedColor(e.target.value)}>
