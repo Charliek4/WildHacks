@@ -11,3 +11,22 @@ select {
   margin-right:100px;
   width:270px;
   }
+
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .info-card {
+    display:flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 840px; /* Adjust as needed */
+    height: 100%;
+    padding: 20px;
+    background-color: #f0f0f0; /* Light gray */
+    overflow-y: auto; /* Add a scrollbar if the content is too long */
+    margin-top: 70px;
+  }

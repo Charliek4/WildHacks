@@ -12,6 +12,8 @@ const customIcon = new L.Icon({
 });
 
 function ChicagoMap() {
+
+  const [selectedPosition, setSelectedPosition] = useState(null);
   
   const positions = [
     {'lat': 41.85182, 'lng': -87.745336, 'name': 'Cicero (Pink Line)'} ,
@@ -483,13 +485,19 @@ function ChicagoMap() {
         />
 
         {filteredPositions.map((pos, index) => (
-          <Marker key={index} position={[pos.lat, pos.lng]} icon={customIcon}>
+          <Marker key={index} position={[pos.lat, pos.lng]} icon={customIcon} eventHandlers={{ click: () => setSelectedPosition(pos) }}>
             <Popup>
               {pos.name} {/* Display station name */}
             </Popup>
           </Marker>
         ))}
       </MapContainer>
+      {selectedPosition && (
+        <div className="info-card">
+          <h2>{selectedPosition.name}</h2>
+          {/* Display more data here */}
+        </div>
+      )}
     </div>
   );
 }
