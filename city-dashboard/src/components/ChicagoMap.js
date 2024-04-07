@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import icon from './marker-icon.png';
+import './ChicagoMap.css';
 
 // Create a custom marker icon instance
 const customIcon = new L.Icon({
@@ -449,8 +449,28 @@ function ChicagoMap() {
 {'lat': 41.961539, 'lng': -87.743574, 'name': 'Montrose (Blue Line)'} 
   ];
 
+  const [selectedColor, setSelectedColor] = React.useState('all');
+
+  const colors = ['red', 'blue', 'green', 'pink', 'purple', 'brown', 'orange', 'yellow', 'all'];
+
+  const dropdown = (
+    <select className = "my-dropdown" onChange={(e) => setSelectedColor(e.target.value)}>
+      {colors.map((color) => (
+        <option key={color} value={color}>
+          {color}
+        </option>
+      ))}
+    </select>
+  );
+
+  const filteredPositions = selectedColor === 'all'
+    ? positions
+    : positions.filter(position => position.name.toLowerCase().includes(selectedColor))
+
   return (
+    
     <div style={{ width: '100%', height: '100vh' }}>
+      {dropdown}
       <MapContainer
         center={[41.8781, -87.6298]} // Chicago coordinates
         zoom={12} // Adjust the zoom level as needed
@@ -462,7 +482,7 @@ function ChicagoMap() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
 
-        {positions.map((pos, index) => (
+        {filteredPositions.map((pos, index) => (
           <Marker key={index} position={[pos.lat, pos.lng]} icon={customIcon}>
             <Popup>
               {pos.name} {/* Display station name */}
