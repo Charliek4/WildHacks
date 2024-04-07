@@ -51,6 +51,9 @@
   left: 0;
   width: 50%; /* Adjust this to change the width of the map */
   height: 50vh; /* Adjust this to change the height of the map */
+  border-radius: 20px; /* This makes the map have rounded corners */
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3); /* This adds a shadow to the map */
+  overflow: hidden; /* This ensures that the map doesn't overflow the rounded corners */
 }
 
 .dashboard {
